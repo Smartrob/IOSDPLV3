@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IOSDPL-TemporaryEntry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="fav.png">
+</head>
+<header class="header">
+
+    <h1>Indianoil<span style="color: blue;">Sky</span><span style="color: red;">Tanking</span></h1>
+   
+</header>
+
+<body>
+    <form class="body1" name="google-sheet" method="POST">
+        <h4 class="fheading">Fuel Delivery Voucher</h4>
+        <h3>Customer Details</h3>
+        <div class="container">
+
+            <div class="form1">
+                <div class="input-data">
+                    <label for="">Airport Code</label>
+                    <input type="text" value="Delhi-ITP" name="AirportCode" required>
+                </div>
+                <div class="input-data">
+                    <label for="dateInput">FDR Date</label>
+                    <input type="date" id="dateInput" name="FDRDate" required>
+                </div>
+                <div class="input-data">
+                    <label for="">FDR Number</label>
+                    <input type="number" name="FDRNumber" required>
+                </div>
+                <div class="input-data">
+                    <label for="cust">Customer Name</label>
+                    <input list="customers" id="cust" name="CustomerName" oninput="validateCustomer()">
+                    <datalist id="customers"></datalist>
+                </div>
+                <div class="input-data">
+                    <label for="">Suplier</label>
+                    <select style="background-color: #f8eff6e1;" class="" name="Suplier" id="" required>
+                       
+                        <option value="IOCL">IOCL</option>
+                        <option value="RIL">RIL</option>
+                        <option value="HPCL">HPCL</option>
+                    </select>
+                </div>
+            </div>
+
+
+        </div>
+        <h3>Airlines Details</h3>
+        <div class="container">
+            <div class="form1">
+                <div class="input-data">
+                    <label for="">Flight No.</label>
+                    <input type="text" name="FlightNumber" required>
+                </div>
+                <div class="input-data">
+                    <label for="">Aircraft Type</label>
+                    <input type="text" name="AircraftType" required>
+                </div>
+                <div class="input-data">
+                    <label for="">Aircraft regd.</label>
+                    <input type="text" name="AircraftRegd" required>
+                </div>
+                <div class="input-data">
+                    <label for="">Destination Code</label>
+                    <input type="text" name="DestinationCode" required>
+                </div>
+                <div class="input-data">
+                    <label for="">Type</label>
+                    <select style="background-color: #f8eff6e1;" class="" name="Type" id="" required>
+                        <option value="Passenger" selected>Passenger</option>
+                        <option value="Cargo">Cargo</option>
+
+                    </select>
+                </div>
+            </div>
+
+        </div>
+        <h3>Product and Delivery details</h3>
+        <div class="container" id="radio">
+            <div class="product-details">
+                <div class="input-radio">
+                    <div class="radiodiv">
+                        <input type="radio" name="Refuelling" value="Refuelling" class="checkbox-like" required>
+                        <label for="refuelling">Refuelling</label>
+                    </div>
+                    <div class="radiodiv">
+                        <input type="radio" name="Refuelling" value="Defuelling" class="checkbox-like" required>
+                        <label for="Defuelling">Defuelling</label>
+                    </div>
+                </div>
+                <div class="input-radio">
+                    <div class="radiodiv">
+                        <input type="radio" name="Domestic" value="Domestic" class="checkbox-like" required>
+                        <label for="">Domestic</label>
+                    </div>
+                    <div class="radiodiv">
+                        <input type="radio" name="Domestic" value="International" class="checkbox-like" required>
+                        <label for="">International</label>
+                    </div>
+                </div>
+                <div class="input-radio">
+                    <div class="radiodiv">
+                        <input type="radio" name="DutyPaid" value="Dutypaid" class="checkbox-like" required>
+                        <label for="">Dutypaid</label>
+                    </div>
+                    <div class="radiodiv">
+                        <input type="radio" name="DutyPaid" value="Bonded" class="checkbox-like" required>
+                        <label for="">Bonded</label>
+                    </div>
+                </div>
+                <div class="input-radio">
+                    <div class="radiodiv">
+                        <input type="radio" name="Rcs" checked value="Non-Rcs" class="checkbox-like" required>
+                        <label for="">Non-RCs</label>
+                    </div>
+                    <div class="radiodiv">
+                        <input type="radio" name="Rcs" value="Rcs" class="checkbox-like" required>
+                        <label for="">RCs</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form1 density-data">
+                <div class="input-data">
+                    <label for="">Density</label>
+                    <input type="number" id="density" name="Density" required>
+                </div>
+                <div class="input-data">
+                    <label for="">Temprature</label>
+                    <input type="number" id="temp" name="Temp" required>
+                </div>
+                <div class="input-data">
+                    <label for="">Name</label>
+                    <input type="text" name="Name" required>
+                </div>
+            </div>
+        </div>
+        <h3>Fuel Reading Details</h3>
+        <div class="container">
+            <div class="form1">
+                <div class="input-data">
+                    <label for="equip">Equipment</label>
+                    <input list="Equipments" id="equip" name="Equipment" oninput="validateEquipment()">
+                    <datalist id="Equipments"></datalist>
+
+                </div>
+                <div class="input-data">
+                    <label for="">Bay No.</label>
+                    <input type="text" name="Bay" required>
+                </div>
+                <div class="input-data ternmal-data">
+                    <label for="">Terminal</label>
+                    <select style="background-color: #f8eff6e1;" class="teminaldata" name="Terminal" id=""
+                        required>
+                        <option value="T3" selected>T3</option>
+                        <option value="T2">T2</option>
+                        <option value="T1">T1</option>
+                    </select>
+                </div>
+                <div class="input-data">
+                    <label for="">Pit No.</label>
+                    <input type="text" name="Pit" required>
+                </div>
+                <div class="input-data">
+                    <label for="">Hose</label>
+                    <select style="background-color: #f8eff6e1;" class="hose-select" name="Hose" id="" required>
+                        <option value="Deck Hose 1" selected>Deck Hose 1</option>
+                        <option value="Deck Hose 2">Deck Hose 2</option>
+                        <option value="Deck Hose 1&2">Deck Hose 1&2</option>
+                        <option value="Reel Hose 1">Reel Hose 1</option>
+                        <option value="Reel Hose 2">Reel Hose 2</option>
+                        <option value="Reel Hose 1&2">Reel Hose 1&2</option>
+                    </select>
+                </div>
+                <div class="input-data">
+                    <label for="">Closing Reading</label>
+                    <input type="number" name="Closing" id="field1" required>
+                </div>
+                <div class="input-data">
+                    <label for="">Opening Reading</label>
+                    <input type="number" id="field2" name="Opening" onblur="calculateDifference()" required>
+                </div>
+                <div class="input-data">
+                    <label for="">Differance</label>
+                    <input type="number" id="field3" name="QytLtrs" onblur="calculateQty15()" readonly required>
+                </div>
+                <div class="input-data">
+                    <label for="">Quantity@15</label>
+                    <input type="number" id="field4" name="QtyFifteen" readonly required>
+                </div>
+            </div>
+        </div>
+
+        <div class="timming-details">
+            <h3>Timming Details</h3>
+            <div class="form1">
+                <div class="input-data">
+                    <label for="">Posisning Time</label>
+                    <input type="text" id="timeInput" value="00:00" name="Ptime" oninput="formatTime(this)" required>
+                </div>
+                <div class="input-data">
+                    <label for="">Start Time</label>
+                    <input type="text" id="timeInput" value="00:00" name="Stime" oninput="formatTime(this)" required>
+                </div>
+                <div class="input-data">
+                    <label for="">Complete Time</label>
+                    <input type="text" id="timeInput" value="00:00" name="Ctime" oninput="formatTime(this)" required>
+                </div>
+                <div class="input-data">
+                    <label for="">Final Time</label>
+                    <input type="text" id="timeInput" value="00:00" name="Ftime" oninput="formatTime(this)" required>
+                </div>
+
+                <div class="textarea">
+                    <textarea name="Remark" id="" rows="8" cols="45" placeholder="Remark"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="btn-container">
+            <button class="btn" type="submit" name="submit">Submit</button>
+
+            <button class="btn" type="reset" id="resetAll" style="background-color: rgb(20, 54, 245);"
+                name="Reset">Reset</button>
+            <a href="https://docs.google.com/spreadsheets/d/1AFM7FIPRWg9EggZ6yx63xnU5z-PnUx371k6S0Cv4sDI/export?format=xlsx"
+                class="btn btn-export">Export to excel</a>
+        </div>
+    </form>
+    <script src="index.js"></script>
+</body>
+<footer class="footer">
+
+    Powered by Technical Raven &copy;Copyright 2024
+</footer>
+
+</html>
