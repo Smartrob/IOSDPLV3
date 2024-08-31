@@ -200,3 +200,9 @@ input[type="radio"].checkbox-like:checked {
   width: 100%;
   margin-right: 100px;
 }
+
+.footer a{
+  color: #C8A1E0;
+  text-decoration: none;
+  cursor: pointer;
+}
