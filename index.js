@@ -126,12 +126,12 @@ function validateEquipment() {
 }
 
 
-const numberInput1 = document.getElementById('density');
+const numberInput1 = document.getElementById('densityii');
   numberInput1.min = 774; // Minimum value
   numberInput1.max = 840; // Maximum value
   numberInput1.step = 2;  // Step value
 
-const numberInput = document.getElementById('temp');
+const numberInput = document.getElementById('tempii');
   numberInput.min = 6; // Minimum value
   numberInput.max = 60; // Maximum value
   numberInput.step = 2;  // Step value
